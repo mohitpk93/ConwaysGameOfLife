@@ -114,6 +114,7 @@ function cloneArray(array){
                         var checkBox = document.createElement('input');
                         checkBox.type = 'checkbox';
                         this.checkBoxes[y][x] = checkBox; 
+                        checkBox.coords = [y,x];
                                                 
                         cell.appendChild(checkBox);
                         row.appendChild(cell);
@@ -126,7 +127,53 @@ function cloneArray(array){
                     me.started = false;
                 }
             });
+          
+
             this.grid.appendChild(fragment);
+
+            this.grid.addEventListener('keyup',function(evt){
+                var checkbox  = evt.target;    
+
+                if(checkbox.nodeName.toLowerCase()=='input'){
+                    var coords = checkbox.coords;
+                    var y = coords[0];
+                    var x = coords[1];
+
+                    //console.log(event.keyCode)
+                    switch(evt.keyCode){
+                        
+                        case 37: //left
+                       // console.log(x,y,evt.keyCode, me.size);
+                        if(x>0){
+                            me.checkBoxes[y][x-1].focus();
+                        }
+                        break;
+
+                        case 39: //right
+                        //console.log(x,y,evt.keyCode, me.size);
+                        if(x<me.size-1){
+                            me.checkBoxes[y][x+1].focus();
+                        }
+                        break;
+
+                        case 38: //up
+                        //console.log(x,y,evt.keyCode, me.size);
+                        if(y>0){
+                            me.checkBoxes[y-1][x].focus();
+                        }
+                        break;
+                        
+                        case 40: //bottom
+                       // console.log(x,y,evt.keyCode, me.size);
+                        if(y<me.size-1){
+                            me.checkBoxes[y+1][x].focus();
+                        }
+                        break;
+                        
+                        
+                    }
+                }
+            });
         },
 
         get boardArray(){
