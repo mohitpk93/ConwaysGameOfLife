@@ -13,7 +13,7 @@ h1 {
 }
 
     #grid {
-    margin: auto;
+    margin: 1em auto 0;
     border-spacing: 0;
     border-collapse: collapse;
     }
@@ -37,3 +37,15 @@ h1 {
                     background: black;
     /*for Firefox*/ box-shadow: 0 0 0 99px black inset;
     }
+
+    button, .button {
+        padding: .4em .6em;
+        background: linear-gradient(hsla(0,0%,100%,.3),hsla(0,0%,100%,0)) hsl(80,80%,35%);
+        border: 1px solid rgba(0, 0,0, .2);
+        border-radius: .3em;
+        box-shadow: 0 1px 0 hsla(0,0%,100%, .7) inset,0 .15em .1em -.1em rgba(0, 0,0,.3);
+        font: inherit;
+        font-weight: bold;
+        color: white;
+    }
+
