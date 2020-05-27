@@ -31,6 +31,7 @@ h1 {
     width: 40px;
     height: 40px;
     background: white;
+    transition: 500ms;
     }
 
     #grid input[type="checkbox"]:checked {
@@ -47,5 +48,26 @@ h1 {
         font: inherit;
         font-weight: bold;
         color: white;
+        outline: none;
+
+        /*this is used to replace cursor with index finger hand pointer*/ 
+    cursor: pointer;
+    }
+
+    button:enabled:active,
+    .button:enabled:active,
+    input[type="checkbox"]:checked + label.button {
+background-image: none;
+box-shadow: 0 .1em .3em rgba(0,0,0,.5) inset;
+    }
+
+    button:disabled {
+        background-color:hsl(80,20%,40%) ;
+        cursor: not-allowed;
+    }
+    /*below used to hide the checkbox for aesthetic purposes*/
+    #autoplay {
+        position : absolute;
+        clip: rect(0,0,0,0);
     }
 
